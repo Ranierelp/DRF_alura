@@ -1,25 +1,23 @@
 from django.contrib import admin
-from escola.models import Estudante, Curso, Matricula
-
+from escola.models import Estudante,Curso, Matricula
 
 class Estudantes(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'email','cpf','data_nascimento', 'celular')
-    list_display_links = ('id', 'nome')
-    search_fields = ('nome',)
+    list_display = ('id','nome','email','cpf','data_nascimento','celular')
+    list_display_links = ('id','nome',)
     list_per_page = 20
-    
-admin.site.register(Estudante, Estudantes)
+    search_fields = ('nome',)
+
+admin.site.register(Estudante,Estudantes)
 
 class Cursos(admin.ModelAdmin):
-    list_display = ('id', 'codigo', 'descricao')
-    list_display_links = ('id', 'codigo')
+    list_display = ('id','codigo','descricao')
+    list_display_links = ('id','codigo',)
     search_fields = ('codigo',)
 
-admin.site.register(Curso, Cursos)
+admin.site.register(Curso,Cursos)
 
 class Matriculas(admin.ModelAdmin):
-    list_display = ('id', 'estudante', 'curso', 'periodo')
-    list_display_links = ('id', 'estudante')
-    search_fields = ('estudante',)
-    
-admin.site.register(Matricula, Matriculas)
+    list_display = ('id','estudante','curso','periodo')
+    list_display_links = ('id',)
+
+admin.site.register(Matricula,Matriculas)
